@@ -1,0 +1,19 @@
+*,*::before,
+*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --bg-color:#242424;
+    --dark-bg-color:#121212;
+    --heading-color:#F0283C;
+}
+header{
+    padding: 2rem 1rem;
+    background-color: var(--bg-color);
+    color:var(--heading-color);
+}
+body{
+    background-color: var(--dark-bg-color);
+}
