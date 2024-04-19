@@ -1,13 +1,24 @@
 import React from 'react'
+import { createBrowserRouter,RouterProvider } from 'react-router-dom'
+import Feed from './Feed/Feed'
+import RootLayout from './RootLayout'
+const router= createBrowserRouter([
+  {
+    element:<RootLayout/>,
+    children:[
+      {
+        path:'/',
+        element:<Feed/>
+      },
+     
+    ]
+  }
+ 
+
+])
 const App = () => {
   return (
-    <>
-    <header>
-      <h1>MovieFix</h1>
-    </header>
-   
-
-    </>
+     <RouterProvider router={router}/>
   )
 }
 

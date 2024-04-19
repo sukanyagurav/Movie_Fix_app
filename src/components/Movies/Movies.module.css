@@ -1,0 +1,21 @@
+.container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap:3rem;
+    flex-wrap: wrap;
+}
+
+.main_container{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    
+}
+
+.error{
+    text-align: center;
+}
+.main_container h2{
+    color: var( --heading-color);
+}

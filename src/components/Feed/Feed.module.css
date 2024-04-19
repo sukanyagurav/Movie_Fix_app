@@ -1,0 +1,21 @@
+.content{
+    display: flex;
+    position: relative;
+    top: 120px;
+    height: 100%;
+}
+.movies{
+    margin-left: 350px;
+   margin-top: 2rem;
+}
+@media (max-width:700px){
+    .content{
+        flex-direction: column;
+    }
+}
+@media(max-width:700px){
+    .movies{
+        margin-left: 0;
+        margin-top: 9rem;
+    }
+}
