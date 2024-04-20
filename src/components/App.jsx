@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{Suspense} from 'react'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import Feed from './Feed/Feed'
 import RootLayout from './RootLayout'
@@ -18,7 +18,9 @@ const router= createBrowserRouter([
 ])
 const App = () => {
   return (
+    <Suspense  fallback={<div>Loading...</div>}>
      <RouterProvider router={router}/>
+     </Suspense>
   )
 }
 

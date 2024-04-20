@@ -16,4 +16,5 @@ header{
 }
 body{
     background-color: var(--dark-bg-color);
+    color: white;
 }
