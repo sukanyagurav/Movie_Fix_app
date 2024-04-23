@@ -1,8 +1,12 @@
 #  Movie List app
 
 ![Design desktop preview for the Movie list app ](./src/assets/desktopLayout.png)
-![Design mobile preview for the movie list app](./src/assets/desktopLayout.png)
 
+![Design mobile preview for the movie list app](./src/assets/mobieLayout.png)
+
+### Links
+- Solution URL: [movie_List_app](https://github.com/sukanyagurav/Movie_Fix_app)
+- Live Site URL: [Movie_List_App](https://movielistco.netlify.app/)
 
 Your users should be able to:
 
@@ -40,6 +44,4 @@ Your app is ready to be deployed!
 - React
 - Animation
 
-### Links
-- Solution URL: [movie_List_app](https://github.com/sukanyagurav/IP-address-tracker)
-- Live Site URL: [Movie_List_App](https://iptrakcer.netlify.app/)
+
