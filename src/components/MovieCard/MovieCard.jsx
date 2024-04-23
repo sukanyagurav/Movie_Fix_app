@@ -6,9 +6,11 @@ import React, { useEffect } from "react";
 import { useAnimation, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Rating from './Rating';
-import { fetchCast } from '../utilis/fetchFromAPI';
-const MovieCard = ({movie,categories}) => {
+import { fetchCast, fetchGenres } from '../utilis/fetchFromAPI';
+const MovieCard = ({movie}) => {
   const [cast,setCast]=useState([])
+  const [categories,setCategories] = useState([])
+
   const cardAnimation = {
     hidden: {
       opacity: 0,
@@ -26,7 +28,8 @@ const MovieCard = ({movie,categories}) => {
   const { ref, inView } = useInView({
     threshold: 0.5
   });
-  console.log(categories)
+
+
   useEffect(() => {
     if (inView) {
       ctrls.start("visible");
@@ -36,9 +39,14 @@ const MovieCard = ({movie,categories}) => {
     }
   
   }, [ctrls, inView]);
+
   useEffect(()=>{
     fetchCast(movie.id).then(data=>setCast(data))
+    fetchGenres(`https://api.themoviedb.org/3/genre/movie/list?language=en&api_key=${process.env.REACT_APP_API_KEY}`).then((data)=>{
+        setCategories([...data])
+    }) 
   },[movie])
+
   const [readMore,setReadMore] = useState(false)
   return (
     <motion.article  ref={ref}

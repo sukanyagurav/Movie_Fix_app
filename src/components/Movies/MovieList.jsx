@@ -3,7 +3,7 @@ import classes from './Movies.module.css'
 
 import MovieCard from '../MovieCard/MovieCard'
 
-const MovieList = ({movies,year,categories}) => {
+const MovieList = ({movies,year}) => {
 
   
     return (
@@ -12,7 +12,7 @@ const MovieList = ({movies,year,categories}) => {
     {movies.length == 0 && <h2 style={{textAlign:'center'}} >No movies found! </h2>}
     <div className={classes.container}>
       {movies.map(movie=>(
-        <MovieCard movie={movie} categories={categories}/>
+        <MovieCard movie={movie} />
       ))}
     </div>
 

@@ -43,7 +43,7 @@ const Feed = () => {
   
         <div className={classes.movies}> 
 
-         <Movies categories={categories} selectedCategory={selectedCategory} year={year} setYear={setYear}/>
+         <Movies  selectedCategory={selectedCategory} year={year} setYear={setYear}/>
         </div>
 
       

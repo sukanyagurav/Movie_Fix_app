@@ -7,9 +7,10 @@ import loadingSrc from '../../assets/Spinner@1.25x-1.0s-200px-200px (1).svg'
 
 import axios from 'axios';
 
-const Movies = ({selectedCategory,year,setYear,categories}) => {
+const Movies = ({selectedCategory,year,setYear}) => {
   const [movies,setMovies] = useState([])
   const [loading,setLoading] = useState(false)
+  const uniqueIds = [];
   function initialFunction(){
 
     setMovies([])
@@ -51,7 +52,7 @@ const Movies = ({selectedCategory,year,setYear,categories}) => {
   }
 
   };
-  const uniqueIds = [];
+
   return (
     <div  style={{display:'flex',flexDirection:'column',marginBottom:'3rem',gap:'5rem'}} id="main">
     <InfiniteScroll
@@ -69,11 +70,7 @@ const Movies = ({selectedCategory,year,setYear,categories}) => {
          return true;
        }
        return false;
-     }).map((movie, index) => {
- 
- return <MovieList categories={categories}  movies ={movie.movie} year={movie.year} key={movie.year}/>
-    
-   })} 
+     }).map((movie, index) => <MovieList  movies ={movie.movie} year={movie.year} key={movie.year}/>)} 
   </div>
 
     </InfiniteScroll>
