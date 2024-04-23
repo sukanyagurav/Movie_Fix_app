@@ -15,8 +15,8 @@ const Feed = () => {
       "name": "All"
   }])
     useEffect(()=>{
-      fetchGenres('https://api.themoviedb.org/3/genre/movie/list?language=en&api_key=2dca580c2a14b55200e784d157207b4d').then((data)=>{
-        console.log('movies=====')
+      fetchGenres(`https://api.themoviedb.org/3/genre/movie/list?language=en&api_key=${process.env.REACT_APP_API_KEY}`).then((data)=>{
+
         
         setCategories(prevCategories => {
           return [
@@ -25,12 +25,14 @@ const Feed = () => {
           ]
         })
       }) 
-
+      
     },[])
   
     function handleClick(id){
       setYear(2012)
       setSelectedCategory(id)
+      // window.scrollTo({top:0,behavior:'smooth'})
+      
     }
 
  
@@ -41,7 +43,7 @@ const Feed = () => {
   
         <div className={classes.movies}> 
 
-         <Movies selectedCategory={selectedCategory} year={year} setYear={setYear}/>
+         <Movies categories={categories} selectedCategory={selectedCategory} year={year} setYear={setYear}/>
         </div>
 
       

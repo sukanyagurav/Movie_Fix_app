@@ -3,10 +3,13 @@
     position: relative;
     top: 120px;
     height: 100%;
+    width: 100%;
 }
 .movies{
-    margin-left: 350px;
-   margin-top: 2rem;
+    margin-left: 300px;
+    margin-top: 2rem;
+    height: 100%;
+    width: 100%;
 }
 @media (max-width:700px){
     .content{
@@ -17,5 +20,8 @@
     .movies{
         margin-left: 0;
         margin-top: 9rem;
+    }
+    .content{
+        top: 40px;
     }
 }

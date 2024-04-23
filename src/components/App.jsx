@@ -2,6 +2,7 @@ import React,{Suspense} from 'react'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import Feed from './Feed/Feed'
 import RootLayout from './RootLayout'
+import Search from './SearchFeed/SearchFeed'
 const router= createBrowserRouter([
   {
     element:<RootLayout/>,
@@ -10,7 +11,10 @@ const router= createBrowserRouter([
         path:'/',
         element:<Feed/>
       },
-     
+      {
+        path:'/search/:searchTerm',
+        element:<Search/>
+      }
     ]
   }
  

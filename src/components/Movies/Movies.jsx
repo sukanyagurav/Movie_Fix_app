@@ -1,20 +1,22 @@
 
 import InfiniteScroll from "react-infinite-scroll-component";
-import React, { useEffect, useState,useRef,useCallback } from 'react'
+import React, { useEffect, useState } from 'react'
 import { fetchFromAPI } from '../utilis/fetchFromAPI'
 import MovieList from "./MovieList";
-
+import loadingSrc from '../../assets/Spinner@1.25x-1.0s-200px-200px (1).svg'
 
 import axios from 'axios';
 
-const Movies = ({selectedCategory,year,setYear}) => {
+const Movies = ({selectedCategory,year,setYear,categories}) => {
   const [movies,setMovies] = useState([])
-
+  const [loading,setLoading] = useState(false)
   function initialFunction(){
+
     setMovies([])
+    setLoading(true)
     fetchFromAPI(selectedCategory,year).then(data=>{ 
       setMovies([{year:year,movie:data}])})
-
+    setLoading(false)
   }
   useEffect(()=>{
       initialFunction()
@@ -26,7 +28,7 @@ const Movies = ({selectedCategory,year,setYear}) => {
     return prevYear + 1
   })
 
-  const  {data:{results}} = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=2dca580c2a14b55200e784d157207b4d&sort_by=popularity.desc&primary_release_year=${year}&page=1&vote_count.gte=100`)
+  const  {data:{results}} = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&sort_by=popularity.desc&primary_release_year=${year}&page=1&vote_count.gte=100`)
   
   if(selectedCategory === 1 ){
    
@@ -52,15 +54,13 @@ const Movies = ({selectedCategory,year,setYear}) => {
   const uniqueIds = [];
   return (
     <div  style={{display:'flex',flexDirection:'column',marginBottom:'3rem',gap:'5rem'}} id="main">
-
-   
     <InfiniteScroll
       dataLength={ movies?.length }
-
+      loader={<img src={loadingSrc} style={{marginInline: 'auto',display: 'block'}}/>}
       next={fetchData}
       hasMore={year <= new Date().getFullYear()}
     >
-  <div >
+  <div>
   {
       movies.filter(element => {
        const isDuplicate = uniqueIds.includes(element.year);
@@ -71,7 +71,7 @@ const Movies = ({selectedCategory,year,setYear}) => {
        return false;
      }).map((movie, index) => {
  
- return <MovieList  movies ={movie.movie} year={movie.year} key={movie.year}/>
+ return <MovieList categories={categories}  movies ={movie.movie} year={movie.year} key={movie.year}/>
     
    })} 
   </div>

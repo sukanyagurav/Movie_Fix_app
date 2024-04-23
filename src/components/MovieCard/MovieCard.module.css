@@ -2,36 +2,117 @@
     display: flex;
     flex-direction: column;
     width:250px;
-    height:350px;
+    height:380px;
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    transform: scale(1.1);
     transition: transform 0.3s;
+    margin-bottom: 1rem;
+    box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
+    rgb(0 0 0 / 73%) 0px 16px 10px -10px;
+}
+.movieCard:hover {
+    transform: scale(1.2);
 }
 .movieCard__content{
     position: absolute;
-    transform: translateY(200px);
+    transform: translateY(500px);
     transition: transform 0.3s;
     bottom: 0;
     left: 0;
     padding: 1rem;
     width: 100%;
-    background: white;
-    color: var(--heading-color);
+    height: 100%;
+    background:hsl(230, 17%, 14%);
+    color: rgb(244, 243, 243);
+
 }
-.movieCard:hover .movieCard__content{
- 
-    transform: translate(0);
-}
+
 .movieCard img{
     width: 100%;
     height: 100%;
-
 }
-.movieCard__content h2{
+.movieCard:hover .movieCard__content{
+    transform: translateY(0);
+}
+.movie_title{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--heading-color);
+}
+.overview{
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.6rem;
+    line-height: 1.5;
+
+}
+.overview button{
+    background: transparent;
+    border: none;
+    color: white;
+    border-bottom: 1px solid red;
+    padding-bottom: 0.3rem;
+    font-family: inherit;
+    cursor: pointer;
+}      
+.categories{
+    display: flex;
+    gap: 0.6rem;
+    list-style: none;
+    flex-wrap: wrap;
+    font-size: 0.75rem;
+    margin-bottom: 0.9rem;
+    margin-top: 1.2rem;
+    
+}
+.categories li{
+    background-color: #696e8d40;
+    color: #f6f1f1;
+    padding: .5rem;
+    border-radius: 5px;
+}
+.castTitle{
+    color: var(--heading-color);
+}
+.cast{
+    display: flex;
+    list-style: none;
+    gap:1rem;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.5rem;
+}
+
+.cast::-webkit-scrollbar{
+    width: 6px;
+    height:6px ;
+}
+
+.cast::-webkit-scrollbar-track{
+    background-color: rgba(132, 131, 131, 0.684);
+}
+
+.cast::-webkit-scrollbar-thumb{
+    background-color: var(--heading-color);
+    border-radius: 12px;
+}
+.cast img{
+    width:43px;
+    height:43px;
+    border-radius: 50%;
+    object-fit:cover;
+}
+.cast li{
+    margin-top: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    white-space: nowrap;
+}
+.cast li span{
+    font-size: 0.75rem;
 }
